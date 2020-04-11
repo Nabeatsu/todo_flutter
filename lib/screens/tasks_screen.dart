@@ -9,9 +9,9 @@ class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.deepPurple,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Colors.red,
         child: Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
@@ -29,19 +29,11 @@ class TasksScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                CircleAvatar(
-                  child: Icon(
-                    Icons.list,
-                    size: 30.0,
-                    color: Colors.lightBlueAccent,
-                  ),
-                  backgroundColor: Colors.white,
-                ),
                 SizedBox(
                   height: 10.0,
                 ),
                 Text(
-                  'ToDo',
+                  'ToDo List',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 50.0,
