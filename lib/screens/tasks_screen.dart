@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoflutter/models/task_data.dart';
-import 'package:todoflutter/widgets/tasks_list.dart';
+import 'package:todoflutter/widgets/task_list.dart';
 
 import 'add_task_screen.dart';
 
@@ -59,11 +59,33 @@ class TasksScreen extends StatelessWidget {
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
                   )),
-              child: TasksList(),
+              child: taskListIeNeeded(context),
             ),
           )
         ],
       ),
     );
   }
+}
+
+Widget taskListIeNeeded(@required BuildContext context) {
+  if (Provider.of<TaskData>(context).taskCount == 0) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(20.0),
+          child: Text(
+            'タスクはありません。',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.purple,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+  return TaskList();
 }

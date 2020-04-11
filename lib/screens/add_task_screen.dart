@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoflutter/models/task_data.dart';
 
-class AddTaskScreen extends StatelessWidget {
-  String newTaskTitle;
+class AddTaskScreen extends StatefulWidget {
+  @override
+  _AddTaskScreenState createState() => _AddTaskScreenState();
+}
+
+class _AddTaskScreenState extends State<AddTaskScreen> {
+  String _newTaskTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,8 @@ class AddTaskScreen extends StatelessWidget {
               cursorColor: Colors.lightBlueAccent,
               textAlign: TextAlign.center,
               onChanged: (newText) {
-                newTaskTitle = newText;
+                _newTaskTitle = newText;
+                print(_newTaskTitle);
               },
             ),
             FlatButton(
@@ -43,9 +49,11 @@ class AddTaskScreen extends StatelessWidget {
               ),
               color: Colors.lightBlueAccent,
               onPressed: () {
-                print(newTaskTitle);
+                print('&&&&&&');
+                print(_newTaskTitle);
+                print('&&&&&&&&');
                 Provider.of<TaskData>(context, listen: false)
-                    .addTask(newTaskTitle);
+                    .addTask(_newTaskTitle);
                 Navigator.pop(context);
               },
             ),

@@ -4,11 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:todoflutter/models/task.dart';
 
 class TaskData extends ChangeNotifier {
-  List<Task> _tasks = [
-    Task(name: 'Buy milk'),
-    Task(name: 'Buy eggs'),
-    Task(name: 'Buy bread'),
-  ];
+  List<Task> _tasks = [];
 
   int get taskCount {
     return _tasks.length;
@@ -19,6 +15,9 @@ class TaskData extends ChangeNotifier {
   }
 
   void addTask(String newTaskTitle) {
+    print('###################');
+    print(newTaskTitle);
+    print('################');
     _tasks.add(Task(name: newTaskTitle));
     notifyListeners();
   }

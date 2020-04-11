@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todoflutter/models/task_data.dart';
 import 'package:todoflutter/widgets/task_tile.dart';
 
-class TasksList extends StatelessWidget {
+class TaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskData>(
