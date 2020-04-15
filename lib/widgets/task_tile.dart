@@ -18,12 +18,12 @@ class TaskTile extends StatelessWidget {
       onLongPress: longPressCallback,
       title: Text(
         taskTitle,
-        style: TextStyle(
-          decoration: isChecked ? TextDecoration.lineThrough : null,
-        ),
+        style: Theme.of(context).textTheme.body2.copyWith(
+              decoration: isChecked ? TextDecoration.lineThrough : null,
+              fontSize: 18.0,
+            ),
       ),
       trailing: Checkbox(
-        activeColor: Colors.lightBlueAccent,
         value: isChecked,
         onChanged: checkboxCallback,
       ),

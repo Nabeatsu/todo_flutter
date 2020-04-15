@@ -9,9 +9,8 @@ class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Theme.of(context).primaryColor,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.red,
         child: Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
@@ -35,7 +34,7 @@ class TasksScreen extends StatelessWidget {
                 Text(
                   'ToDo List',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.title.color,
                     fontSize: 50.0,
                     fontWeight: FontWeight.w700,
                   ),
@@ -43,7 +42,7 @@ class TasksScreen extends StatelessWidget {
                 Text(
                   '${Provider.of<TaskData>(context).taskCount} Tasks',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.caption.color,
                     fontSize: 18.0,
                   ),
                 ),
@@ -54,7 +53,7 @@ class TasksScreen extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).backgroundColor,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
@@ -80,7 +79,7 @@ Widget taskListIeNeeded(@required BuildContext context) {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.0,
-              color: Colors.purple,
+              color: Theme.of(context).textTheme.display1.color,
             ),
           ),
         ),

@@ -10,14 +10,22 @@ class AddTaskScreen extends StatefulWidget {
 class _AddTaskScreenState extends State<AddTaskScreen> {
   String _newTaskTitle;
 
+  Color get cornerColor {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    return (brightness == Brightness.dark)
+        ? Colors.transparent
+        : Color(0xff757575);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
     return Container(
-      color: Color(0xff757575),
+      color: cornerColor,
       child: Container(
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: themeData.backgroundColor,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0),
               topRight: Radius.circular(20.0),
@@ -26,16 +34,15 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              'Add Task',
+              'タスク追加画面',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.lightBlueAccent,
-              ),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 30.0,
+                  color: themeData.textTheme.display1.color),
             ),
             TextField(
               autofocus: true,
-              cursorColor: Colors.lightBlueAccent,
               textAlign: TextAlign.center,
               onChanged: (newText) {
                 _newTaskTitle = newText;
@@ -45,9 +52,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             FlatButton(
               child: Text(
                 'Add',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: themeData.textTheme.button.color),
               ),
-              color: Colors.lightBlueAccent,
+              color: themeData.primaryColor,
               onPressed: () {
                 print('&&&&&&');
                 print(_newTaskTitle);
